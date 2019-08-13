@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">student</property>
+  <property name="hibernate.connection.url">jdbc:mysql://sql166.main-hosting.eu/u798698804_sakil</property>
+  <property name="hibernate.connection.username">u798698804_stude</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.show_sql">true</property>
+  
+  <property name="hibernate.current_session_context_class">thread</property>
+ 
+  <mapping resource="org/fstore/Entity/Customer.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/CustomerAddress.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/CustomerCity.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/CustomerCountry.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/BusinessStore.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/BussinessPayment.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/BussinessRental.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/BussinessStaff.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/Inventory.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryActor.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryCategory.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryFilm.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryFilmActor.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryFilmCategory.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryFilmText.hbm.xml"/>
+  <mapping resource="org/fstore/Entity/InventoryLanguage.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 10, 2019, 10:48:59 PM by Hibernate Tools 5.2.12.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="u798698804_sakil" dynamic-insert="false" dynamic-update="false" mutable="true" name="org.fstore.Entity.CustomerAddress" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="customer_address">
+        <id name="addressId" type="java.lang.Short">
+            <column name="address_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="org.fstore.Entity.CustomerCity" embed-xml="true" fetch="select" insert="true" name="customerCity" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="city_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="address" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="address" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="address2" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="address2"/>
+        </property>
+        <property generated="never" lazy="false" name="district" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="district" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="postalCode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="postal_code"/>
+        </property>
+        <property generated="never" lazy="false" name="phone" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="phone" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lastUpdate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="last_update" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="bussinessStaffs" optimistic-lock="true" sort="unsorted" table="bussiness_staff">
+            <key on-delete="noaction">
+                <column name="address_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.fstore.Entity.BussinessStaff" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="customers" optimistic-lock="true" sort="unsorted" table="customer">
+            <key on-delete="noaction">
+                <column name="address_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.fstore.Entity.Customer" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="businessStores" optimistic-lock="true" sort="unsorted" table="business_store">
+            <key on-delete="noaction">
+                <column name="address_id" not-null="true"/>
+            </key>
+            <one-to-many class="org.fstore.Entity.BusinessStore" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
