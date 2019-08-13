@@ -39,13 +39,13 @@
 			<hr>
 
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label> <input
-					type="email" class="form-control" id="exampleInputEmail1"
+				<label for="email">Email address</label> <input
+					type="email" class="form-control" name="email" id="email"
 					placeholder="Email" required>
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label> <input
-					type="password" class="form-control" id="password"
+					type="password" class="form-control" name="psw" id="password"
 					placeholder="Password" required>
 			</div>
 			
