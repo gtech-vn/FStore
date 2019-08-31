@@ -3,11 +3,20 @@ $(document).ready(function() {
 	
 	
 	$('#signbtn').on("click", function(evebt){
-		signInValidate();
+		if(!signInValidate()) {
+			return;
+		}
 		var postData = {
 			username: $("input[name='username']").val(),
 			password: $("input[name='password']").val(),
 		};
+		
+		clientRequest.post("/api/user/signin", postData)
+		.then(function(res) {
+		
+			console.log(res);
+		})
+		
 	});
 	
 	//Hiển thị màn hình SignIn khi click vào menu 
@@ -24,7 +33,14 @@ $(document).ready(function() {
 	
 	function signInValidate() {
 		 var pristine = new Pristine($("#appsigincontent form")[0]);
-		 console.log(pristine.validate())
+		 if(!pristine.validate()) {
+			 var eles = $("#appsigincontent .has-danger input");
+			 if(eles.length) {
+				 $(eles[0]).focus();
+			 }
+			 return false;
+		 }
+		 return true;
 	}
 
 })

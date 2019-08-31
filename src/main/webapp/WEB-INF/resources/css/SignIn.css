@@ -1,5 +1,16 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
+.modal-content .pristine-error {
+	display: none;
+}
+.modal-content .has-danger input {
+	border-color: #f44336;
+}
+.modal-content .error-message {
+	display: none;
+	color: #f44336;
+}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
