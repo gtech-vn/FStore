@@ -20,8 +20,6 @@
 <script src="js/libs/bootstrap/js/bootstrap.min.js"></script>
 
 <link href="styles/RegisterPage.css" rel="stylesheet" />
-<script src="js/libs/jquery-3.4.1.min.js" type="text/javascript"></script>
-<script src="js/request.js" type="text/javascript"></script>
 <script src="js/users/RegisterPage.js" type="text/javascript"></script>
 
 
