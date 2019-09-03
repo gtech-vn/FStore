@@ -7,20 +7,18 @@ import org.fstore.Entity.Customer;
 import org.fstore.Entity.CustomerCountry;
 import org.fstore.Model.FStoreHibernateDao;
 import org.fstore.Model.IGenericDao;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
-	static FStoreHibernateDao<Customer> dao;
 	public static void main(String[] args) {
-		dao = new FStoreHibernateDao();
-		insertCountry(dao);
-		System.out.print(111);
-	}
-	
-	public static void insertCountry(FStoreHibernateDao dao) {
-		dao.setClazz(CustomerCountry.class);
-		CustomerCountry country = new CustomerCountry();
-		country.setCountry("Viet Nam");
-		country.setLastUpdate(new Date());
-		dao.create(country);
+		System.out.print(1111);
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+ 
+        Room room = (Room) context.getBean("room");
+        
+        if (room.getTable() != null) {
+            System.out.println(1234);
+        }
 	}
 }

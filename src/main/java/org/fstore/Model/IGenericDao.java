@@ -3,10 +3,12 @@ package org.fstore.Model;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.Criteria;
+
 public interface IGenericDao<T extends Serializable> {
 	T findOne(final long id);
 
-	List<T> findAll();
+	Criteria find();
 
 	T create(final T entity);
 

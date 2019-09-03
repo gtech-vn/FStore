@@ -1,5 +1,5 @@
 package org.fstore.Entity;
-// Generated Aug 10, 2019, 10:55:06 PM by Hibernate Tools 5.2.12.Final
+// Generated Sep 3, 2019, 5:38:32 PM by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,26 +22,25 @@ public class BussinessStaff implements java.io.Serializable {
 	private String password;
 	private Date lastUpdate;
 	private Set bussinessPayments = new HashSet(0);
-	private Set businessStores = new HashSet(0);
 	private Set bussinessRentals = new HashSet(0);
 
 	public BussinessStaff() {
 	}
 
 	public BussinessStaff(BusinessStore businessStore, CustomerAddress customerAddress, String firstName,
-			String lastName, boolean active, String username, Date lastUpdate) {
+			String lastName, String email, boolean active, Date lastUpdate) {
 		this.businessStore = businessStore;
 		this.customerAddress = customerAddress;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
 		this.active = active;
-		this.username = username;
 		this.lastUpdate = lastUpdate;
 	}
 
 	public BussinessStaff(BusinessStore businessStore, CustomerAddress customerAddress, String firstName,
 			String lastName, byte[] picture, String email, boolean active, String username, String password,
-			Date lastUpdate, Set bussinessPayments, Set businessStores, Set bussinessRentals) {
+			Date lastUpdate, Set bussinessPayments, Set bussinessRentals) {
 		this.businessStore = businessStore;
 		this.customerAddress = customerAddress;
 		this.firstName = firstName;
@@ -53,7 +52,6 @@ public class BussinessStaff implements java.io.Serializable {
 		this.password = password;
 		this.lastUpdate = lastUpdate;
 		this.bussinessPayments = bussinessPayments;
-		this.businessStores = businessStores;
 		this.bussinessRentals = bussinessRentals;
 	}
 
@@ -151,14 +149,6 @@ public class BussinessStaff implements java.io.Serializable {
 
 	public void setBussinessPayments(Set bussinessPayments) {
 		this.bussinessPayments = bussinessPayments;
-	}
-
-	public Set getBusinessStores() {
-		return this.businessStores;
-	}
-
-	public void setBusinessStores(Set businessStores) {
-		this.businessStores = businessStores;
 	}
 
 	public Set getBussinessRentals() {

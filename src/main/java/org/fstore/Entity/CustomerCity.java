@@ -1,5 +1,5 @@
 package org.fstore.Entity;
-// Generated Aug 10, 2019, 10:55:06 PM by Hibernate Tools 5.2.12.Final
+// Generated Sep 3, 2019, 5:38:32 PM by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class CustomerCity implements java.io.Serializable {
 	private Short cityId;
 	private CustomerCountry customerCountry;
 	private String city;
+	private String cityPostalcode;
 	private Date lastUpdate;
 	private Set customerAddresses = new HashSet(0);
 
@@ -25,9 +26,11 @@ public class CustomerCity implements java.io.Serializable {
 		this.lastUpdate = lastUpdate;
 	}
 
-	public CustomerCity(CustomerCountry customerCountry, String city, Date lastUpdate, Set customerAddresses) {
+	public CustomerCity(CustomerCountry customerCountry, String city, String cityPostalcode, Date lastUpdate,
+			Set customerAddresses) {
 		this.customerCountry = customerCountry;
 		this.city = city;
+		this.cityPostalcode = cityPostalcode;
 		this.lastUpdate = lastUpdate;
 		this.customerAddresses = customerAddresses;
 	}
@@ -54,6 +57,14 @@ public class CustomerCity implements java.io.Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getCityPostalcode() {
+		return this.cityPostalcode;
+	}
+
+	public void setCityPostalcode(String cityPostalcode) {
+		this.cityPostalcode = cityPostalcode;
 	}
 
 	public Date getLastUpdate() {

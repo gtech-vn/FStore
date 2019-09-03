@@ -1,5 +1,5 @@
 package org.fstore.Entity;
-// Generated Aug 10, 2019, 10:55:06 PM by Hibernate Tools 5.2.12.Final
+// Generated Sep 3, 2019, 5:38:32 PM by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -12,6 +12,7 @@ public class CustomerCountry implements java.io.Serializable {
 
 	private Short countryId;
 	private String country;
+	private String countryCode;
 	private Date lastUpdate;
 	private Set customerCities = new HashSet(0);
 
@@ -23,8 +24,9 @@ public class CustomerCountry implements java.io.Serializable {
 		this.lastUpdate = lastUpdate;
 	}
 
-	public CustomerCountry(String country, Date lastUpdate, Set customerCities) {
+	public CustomerCountry(String country, String countryCode, Date lastUpdate, Set customerCities) {
 		this.country = country;
+		this.countryCode = countryCode;
 		this.lastUpdate = lastUpdate;
 		this.customerCities = customerCities;
 	}
@@ -43,6 +45,14 @@ public class CustomerCountry implements java.io.Serializable {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getCountryCode() {
+		return this.countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public Date getLastUpdate() {

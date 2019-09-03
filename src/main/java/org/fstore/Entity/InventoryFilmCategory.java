@@ -1,5 +1,5 @@
 package org.fstore.Entity;
-// Generated Aug 10, 2019, 10:55:06 PM by Hibernate Tools 5.2.12.Final
+// Generated Sep 3, 2019, 5:38:32 PM by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 

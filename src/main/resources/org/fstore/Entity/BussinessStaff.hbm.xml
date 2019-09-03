@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Aug 10, 2019, 10:48:59 PM by Hibernate Tools 5.2.12.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2019, 5:41:14 PM by Hibernate Tools 5.2.12.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="u798698804_sakil" dynamic-insert="false" dynamic-update="false" mutable="true" name="org.fstore.Entity.BussinessStaff" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="bussiness_staff">
         <id name="staffId" type="java.lang.Byte">
@@ -22,16 +22,16 @@
             <column name="picture"/>
         </property>
         <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
-            <column length="50" name="email"/>
+            <column length="50" name="email" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="active" optimistic-lock="true" type="boolean" unique="false">
             <column name="active" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="username" optimistic-lock="true" type="string" unique="false">
-            <column length="16" name="username" not-null="true"/>
+            <column length="16" name="username"/>
         </property>
         <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
-            <column length="40" name="password"/>
+            <column length="65535" name="password"/>
         </property>
         <property generated="never" lazy="false" name="lastUpdate" optimistic-lock="true" type="timestamp" unique="false">
             <column length="19" name="last_update" not-null="true"/>
@@ -41,12 +41,6 @@
                 <column name="staff_id" not-null="true"/>
             </key>
             <one-to-many class="org.fstore.Entity.BussinessPayment" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="businessStores" optimistic-lock="true" sort="unsorted" table="business_store">
-            <key on-delete="noaction">
-                <column name="manager_staff_id" not-null="true" unique="true"/>
-            </key>
-            <one-to-many class="org.fstore.Entity.BusinessStore" embed-xml="true" not-found="exception"/>
         </set>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="bussinessRentals" optimistic-lock="true" sort="unsorted" table="bussiness_rental">
             <key on-delete="noaction">

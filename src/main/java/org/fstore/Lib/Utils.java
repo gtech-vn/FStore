@@ -5,10 +5,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Utils {
-	public static String generatePassword(String txt) throws NoSuchAlgorithmException
+	public static String generatePassword(String txt)
 	{
 		 // getInstance() method is called with algorithm SHA-512 
-        MessageDigest md = MessageDigest.getInstance("SHA-512"); 
+        MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("SHA-512");
+		
 
         byte[] messageDigest = md.digest(txt.getBytes()); 
 
@@ -21,5 +24,9 @@ public class Utils {
         } 
 
         return hashtext; 
+        
+		} catch (NoSuchAlgorithmException e) {
+			return txt;
+		} 
 	}
 }

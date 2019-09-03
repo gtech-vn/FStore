@@ -1,5 +1,5 @@
 package org.fstore.Entity;
-// Generated Aug 10, 2019, 10:55:06 PM by Hibernate Tools 5.2.12.Final
+// Generated Sep 3, 2019, 5:38:32 PM by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,8 +11,9 @@ import java.util.Set;
 public class BusinessStore implements java.io.Serializable {
 
 	private Byte storeId;
-	private BussinessStaff bussinessStaff;
 	private CustomerAddress customerAddress;
+	private byte[] name;
+	private byte managerStaffId;
 	private Date lastUpdate;
 	private Set bussinessStaffs = new HashSet(0);
 	private Set inventories = new HashSet(0);
@@ -21,16 +22,17 @@ public class BusinessStore implements java.io.Serializable {
 	public BusinessStore() {
 	}
 
-	public BusinessStore(BussinessStaff bussinessStaff, CustomerAddress customerAddress, Date lastUpdate) {
-		this.bussinessStaff = bussinessStaff;
+	public BusinessStore(CustomerAddress customerAddress, byte managerStaffId, Date lastUpdate) {
 		this.customerAddress = customerAddress;
+		this.managerStaffId = managerStaffId;
 		this.lastUpdate = lastUpdate;
 	}
 
-	public BusinessStore(BussinessStaff bussinessStaff, CustomerAddress customerAddress, Date lastUpdate,
+	public BusinessStore(CustomerAddress customerAddress, byte[] name, byte managerStaffId, Date lastUpdate,
 			Set bussinessStaffs, Set inventories, Set customers) {
-		this.bussinessStaff = bussinessStaff;
 		this.customerAddress = customerAddress;
+		this.name = name;
+		this.managerStaffId = managerStaffId;
 		this.lastUpdate = lastUpdate;
 		this.bussinessStaffs = bussinessStaffs;
 		this.inventories = inventories;
@@ -45,20 +47,28 @@ public class BusinessStore implements java.io.Serializable {
 		this.storeId = storeId;
 	}
 
-	public BussinessStaff getBussinessStaff() {
-		return this.bussinessStaff;
-	}
-
-	public void setBussinessStaff(BussinessStaff bussinessStaff) {
-		this.bussinessStaff = bussinessStaff;
-	}
-
 	public CustomerAddress getCustomerAddress() {
 		return this.customerAddress;
 	}
 
 	public void setCustomerAddress(CustomerAddress customerAddress) {
 		this.customerAddress = customerAddress;
+	}
+
+	public byte[] getName() {
+		return this.name;
+	}
+
+	public void setName(byte[] name) {
+		this.name = name;
+	}
+
+	public byte getManagerStaffId() {
+		return this.managerStaffId;
+	}
+
+	public void setManagerStaffId(byte managerStaffId) {
+		this.managerStaffId = managerStaffId;
 	}
 
 	public Date getLastUpdate() {

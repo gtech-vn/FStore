@@ -1,20 +1,17 @@
 package org.fstore.Model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import org.fstore.Lib.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractDAOModel <T extends Serializable> {
 	private Class<T> entityClass;
 	  
-    @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
   
     /**
      * Inject entity class
@@ -37,8 +34,9 @@ public abstract class AbstractDAOModel <T extends Serializable> {
      * Find All
      * @return List Entity Object
      */
-    public List findAll() {
-        return getCurrentSession().createQuery("from " + entityClass.getName()).list();
+    public Criteria find() {
+    	Criteria cr = getCurrentSession().createCriteria(entityClass);
+    	return cr;
     }
     
     /**
@@ -96,7 +94,24 @@ public abstract class AbstractDAOModel <T extends Serializable> {
      * @return
      */
     protected Session getCurrentSession() {
-    	sessionFactory = HibernateUtil.getSessionFactory();
         return sessionFactory.openSession();
     }
+    
+    /**
+     * Get session factory
+     * @return
+     */
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+ 
+    /**
+     * Set session factory
+     * @param sessionFactory
+     */
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+
 }
