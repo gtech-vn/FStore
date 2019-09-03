@@ -58,4 +58,14 @@ public class UserController {
 	public String signupFormAction(Model model) {
 		return "users/RegisterPage";
 	}
+	
+	/**
+	 * Administration site
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/admin", method = RequestMethod.GET)
+	public String adminPageAction(Model model) {
+		return "admin/index";
+	}
 }

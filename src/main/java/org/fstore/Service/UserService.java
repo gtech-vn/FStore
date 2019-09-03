@@ -22,6 +22,12 @@ public class UserService {
 	
 	FStoreHibernateDao<BussinessStaff> staffDAO;
 	
+	/**
+	 * Check authentication
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public String auth(String username, String password) {
 		String token = "";
 		
@@ -37,9 +43,8 @@ public class UserService {
         }
         
         if(staff != null) {
-        	token = "wellcome";
+        	token = Utils.generateToken();
         }
-        
         return token;
     }
 

@@ -1,7 +1,4 @@
 $(document).ready(function() {
-	
-	
-	
 	$('#signbtn').on("click", function(evebt){
 		if(!signInValidate()) {
 			return;
@@ -14,9 +11,11 @@ $(document).ready(function() {
 		clientRequest.post("/api/user/signin", postData)
 		.then(function(res) {
 		
-			console.log(res);
+			if(res.status == "Success") {
+				window.localStorage.setItem("token", res.content);
+				window.location.href=document.ctx+"/admin";
+			}
 		})
-		
 	});
 	
 	//Hiển thị màn hình SignIn khi click vào menu 

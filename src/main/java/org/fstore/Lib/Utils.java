@@ -3,8 +3,14 @@ package org.fstore.Lib;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class Utils {
+	/**
+	 * Generate password
+	 * @param txt
+	 * @return
+	 */
 	public static String generatePassword(String txt)
 	{
 		 // getInstance() method is called with algorithm SHA-512 
@@ -28,5 +34,17 @@ public class Utils {
 		} catch (NoSuchAlgorithmException e) {
 			return txt;
 		} 
+	}
+	
+	/**
+	 * Generate Token
+	 * @return
+	 */
+	public static String generateToken()
+	{
+		SecureRandom random = new SecureRandom();
+		byte bytes[] = new byte[20];
+		random.nextBytes(bytes);
+		return bytes.toString();
 	}
 }

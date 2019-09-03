@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	var clientRequest = {};
 	clientRequest.post = function(_url, _data) {
-		console.log(22, document.ctx )
 		return $.when($.ajax({
 			type : "POST",
 			contentType : "application/json",

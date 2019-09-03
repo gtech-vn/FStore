@@ -9,7 +9,8 @@
 <link href="styles/NavigationHeader.css" rel="stylesheet" />
 </head>
 <body>
+
 <jsp:include page='/WEB-INF/pages/app.jsp'></jsp:include>
-<h2>Hello World!</h2>
+
 </body>
 </html>
